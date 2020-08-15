@@ -3,6 +3,8 @@ package exam12.demo.controller;
 import exam12.demo.dto.UserRegistrationForm;
 import exam12.demo.service.Service;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.security.core.Authentication;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,8 +22,12 @@ public class Controller {
     private Service service;
 
     @GetMapping
-    public String main(Model model) {
-        model.addAttribute("cafes", service.getAllCafes());
+    public String main(Model model, @PageableDefault(value = 20) Pageable pageable, Authentication authentication) {
+        model.addAttribute("page", service.getAllCafes(pageable));
+        model.addAttribute("url", "/");
+        if (authentication != null) {
+            model.addAttribute("user", authentication.getAuthorities());
+        }
         return "main-page";
     }
 

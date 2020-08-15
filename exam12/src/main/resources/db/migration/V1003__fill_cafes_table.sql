@@ -26,6 +26,34 @@ INSERT INTO `exam12`.`cafes` (`title`, `description`,`rating`)
 VALUES ('Chicken star', 'Cafe and bar', 0);
 INSERT INTO `exam12`.`cafes` (`title`, `description`,`rating`)
 VALUES ('Chicken star', 'Cafe and bar', 0);
+INSERT INTO `exam12`.`cafes` (`title`, `description`,`rating`)
+VALUES ('Chicken star', 'Cafe and bar', 0);
+INSERT INTO `exam12`.`cafes` (`title`, `description`,`rating`)
+VALUES ('Chicken star', 'Cafe and bar', 0);
+INSERT INTO `exam12`.`cafes` (`title`, `description`,`rating`)
+VALUES ('Chicken star', 'Cafe and bar', 0);
+INSERT INTO `exam12`.`cafes` (`title`, `description`,`rating`)
+VALUES ('Chicken star', 'Cafe and bar', 0);
+INSERT INTO `exam12`.`cafes` (`title`, `description`,`rating`)
+VALUES ('Chicken star', 'Cafe and bar', 0);
+INSERT INTO `exam12`.`cafes` (`title`, `description`,`rating`)
+VALUES ('Chicken star', 'Cafe and bar', 0);
+INSERT INTO `exam12`.`cafes` (`title`, `description`,`rating`)
+VALUES ('Chicken star', 'Cafe and bar', 0);
+INSERT INTO `exam12`.`cafes` (`title`, `description`,`rating`)
+VALUES ('Chicken star', 'Cafe and bar', 0);
+INSERT INTO `exam12`.`cafes` (`title`, `description`,`rating`)
+VALUES ('Chicken star', 'Cafe and bar', 0);
+INSERT INTO `exam12`.`cafes` (`title`, `description`,`rating`)
+VALUES ('Chicken star', 'Cafe and bar', 0);
+INSERT INTO `exam12`.`cafes` (`title`, `description`,`rating`)
+VALUES ('Chicken star', 'Cafe and bar', 0);
+INSERT INTO `exam12`.`cafes` (`title`, `description`,`rating`)
+VALUES ('Chicken star', 'Cafe and bar', 0);
+INSERT INTO `exam12`.`cafes` (`title`, `description`,`rating`)
+VALUES ('Chicken star', 'Cafe and bar', 0);
+INSERT INTO `exam12`.`cafes` (`title`, `description`,`rating`)
+VALUES ('Chicken star', 'Cafe and bar', 0);
 
 INSERT INTO `exam12`.`images` (`path`, `cafe_id`)
 VALUES ('images/no-image', 1);
