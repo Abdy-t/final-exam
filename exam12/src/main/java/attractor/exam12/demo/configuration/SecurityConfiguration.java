@@ -1,18 +1,5 @@
-package exam12.demo.configuration;
+package attractor.exam12.demo.configuration;
 
-
-import lombok.AllArgsConstructor;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.access.AccessDeniedHandler;
-
-import javax.sql.DataSource;
 
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -50,13 +37,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/")
                 .clearAuthentication(true)
                 .invalidateHttpSession(true);
-
-        http.authorizeRequests()
+        http
+                .csrf()
+                .disable()
+                .authorizeRequests()
                 .antMatchers("/", "/login", "/css/login.css", "/registration").permitAll()
                 .antMatchers("/**")
-                .authenticated()
-                .and()
-                .exceptionHandling().accessDeniedHandler(accessDeniedHandler());
+                .authenticated();
+
+//        http.authorizeRequests()
+//                .antMatchers("/", "/login", "/css/login.css", "/registration").permitAll()
+//                .antMatchers("/**")
+//                .authenticated();
     }
 
     @Override
@@ -75,8 +67,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
 
-    @Bean
-    public AccessDeniedHandler accessDeniedHandler() {
-        return new CustomAccessDeniedHandler();
-    }
+//    @Bean
+//    public AccessDeniedHandler accessDeniedHandler() {
+//        return new CustomAccessDeniedHandler();
+//    }
 }

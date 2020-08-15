@@ -1,8 +1,9 @@
-package exam12.demo.model;
+package attractor.exam12.demo.model;
 
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Data
@@ -16,9 +17,11 @@ public class Cafe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @NotBlank
     @Column
     private String title;
 
+    @NotBlank
     @Column
     private String description;
 

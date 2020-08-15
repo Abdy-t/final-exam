@@ -23,6 +23,9 @@ CREATE TABLE `reviews`
 (
     `id` INT NOT NULL AUTO_INCREMENT,
     `text` VARCHAR(255) NOT NULL,
+    `date` VARCHAR(255) NOT NULL,
+    `rating` FLOAT NOT NULL,
+    `user_name` VARCHAR(255) NOT NULL,
     `user_id` INT NOT NULL,
     `cafe_id` INT NOT NULL,
     PRIMARY KEY (`id`),

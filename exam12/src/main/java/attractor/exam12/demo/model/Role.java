@@ -1,4 +1,4 @@
-package exam12.demo.model;
+package attractor.exam12.demo.model;
 
 import org.springframework.security.core.GrantedAuthority;
 

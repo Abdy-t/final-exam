@@ -1,19 +1,23 @@
-package exam12.demo.controller;
+package attractor.exam12.demo.controller;
 
-import exam12.demo.dto.UserRegistrationForm;
-import exam12.demo.service.Service;
+import attractor.exam12.demo.dto.CafeForm;
+import attractor.exam12.demo.dto.UserRegistrationForm;
+import attractor.exam12.demo.model.Cafe;
+import attractor.exam12.demo.service.Service;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.security.core.Authentication;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.awt.*;
+import java.io.File;
+import java.util.Optional;
 
 @org.springframework.stereotype.Controller
 @AllArgsConstructor
@@ -57,5 +61,45 @@ public class Controller {
         }
         service.registration(form);
         return "redirect:/login";
+    }
+
+    @GetMapping("/cafe/{id}")
+    public String getCafe(@PathVariable("id") int id, Model model, Authentication authentication) {
+        Cafe cafe = service.getCafe(id);
+        model.addAttribute("cafe", cafe);
+        if (cafe.getImages().size() > 1)
+            model.addAttribute("images", cafe.getImages());
+        model.addAttribute("reviews", service.getReviews(id));
+        model.addAttribute("user", service.getUserByEmail(authentication.getName()));
+
+        return "cafe";
+    }
+    @GetMapping("/addCafe")
+    public String addCafe(Model model, Authentication authentication) {
+        if (authentication != null)
+            model.addAttribute("user", authentication.getAuthorities());
+        model.addAttribute("cafe", new CafeForm());
+        return "add-cafe";
+    }
+    @PostMapping("/addReview")
+    public String addReview(@RequestParam int cafe_id, String review, float rating, Authentication authentication) {
+        service.addReview(cafe_id, review, rating, authentication.getName());
+        return "redirect:/cafe/" + cafe_id;
+    }
+    @PostMapping("/deleteReview")
+    public String deleteReview(@RequestParam String review_id, int cafe_id) {
+        service.deleteReview(review_id);
+        return "redirect:/cafe/" + cafe_id;
+    }
+
+    @RequestMapping(value = "/addCafes", method = RequestMethod.POST)
+    public String addCafes(@RequestParam String title, String description, MultipartFile image) {
+
+        try {
+            service.saveImage(image, title, description);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return "redirect:/addCafe";
     }
 }

@@ -1,26 +1,25 @@
-package exam12.demo.model;
+package attractor.exam12.demo.model;
 
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
-@Data
-@Table(name = "reviews")
+@Getter
+@Setter
+@Table(name = "images")
 @Entity
 @Builder
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
 @NoArgsConstructor
-public class Review {
+public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column
-    private String text;
-
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @NotBlank
+    private String path;
 
     @ManyToOne
     @JoinColumn(name = "cafe_id")

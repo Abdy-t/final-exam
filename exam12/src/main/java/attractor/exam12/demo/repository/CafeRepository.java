@@ -1,6 +1,6 @@
-package exam12.demo.repository;
+package attractor.exam12.demo.repository;
 
-import exam12.demo.model.Cafe;
+import attractor.exam12.demo.model.Cafe;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

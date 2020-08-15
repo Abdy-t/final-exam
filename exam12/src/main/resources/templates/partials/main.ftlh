@@ -40,7 +40,7 @@
 
                 <#if user??>
 
-                    <a href="/addNewPlace" type="button" class="btn-su ml-auto mr-2 ">Добавить заведение</a>
+                    <a href="/addCafe" type="button" class="btn-su ml-auto mr-2 ">Добавить заведение</a>
                     <form action="/logout" method="post" class="d-flex">
                         <#if _csrf??>
                             <input type="hidden" name="${(_csrf.parameterName)!'csrf'}"

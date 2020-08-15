@@ -1,4 +1,4 @@
-package exam12.demo.dto;
+package attractor.exam12.demo.dto;
 
 import lombok.Getter;
 import lombok.Setter;
