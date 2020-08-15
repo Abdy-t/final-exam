@@ -45,10 +45,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/**")
                 .authenticated();
 
-//        http.authorizeRequests()
-//                .antMatchers("/", "/login", "/css/login.css", "/registration").permitAll()
-//                .antMatchers("/**")
-//                .authenticated();
     }
 
     @Override
@@ -66,9 +62,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .dataSource(dataSource);
     }
 
-
-//    @Bean
-//    public AccessDeniedHandler accessDeniedHandler() {
-//        return new CustomAccessDeniedHandler();
-//    }
 }

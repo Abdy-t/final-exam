@@ -15,9 +15,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
-import java.awt.*;
-import java.io.File;
-import java.util.Optional;
 
 @org.springframework.stereotype.Controller
 @AllArgsConstructor
