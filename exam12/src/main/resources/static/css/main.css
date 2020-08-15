@@ -1,0 +1,152 @@
+ body {
+     font-size: 14px;
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+}
+
+ li {
+     list-style-type: none; /* Убираем маркеры */
+ }
+
+ ul {
+     margin-left: 0; /* Отступ слева в браузере IE и Opera */
+     padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
+ }
+.link-logo, a:hover{
+    color:#fff;
+}
+
+ body .list-group a:hover{
+     color: green;
+     text-decoration: none;
+ }
+
+
+.header {
+    background-color: #373c44;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+}
+.navbar-brand {
+    font-size: 30px;
+    font-weight: 400;
+    color: #fff;
+    text-transform: uppercase;
+}
+.navbar-brand b {
+    font-weight: 900;
+}
+.nav-link {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+}
+.nav-link:hover,
+.btn-su:hover {
+    color: #ccc;
+}
+.nav-link a:active{
+    color: #c6b2c3;
+}
+
+.nav-link {
+    color: #ccc;
+}
+
+.btn-su {
+    background-color: #373c44;
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-radius: 2px;
+    padding: 4px;
+}
+
+
+.username {
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.footer {
+    background-color: #373c44;
+    font-size: 14px;
+    font-weight: 400;
+    color: #aeb0b2;
+    text-align: right;
+}
+.footer em {
+    text-transform: none;
+    margin-left: 40px;
+    font-style: normal;
+}
+.sbch,
+.su-foot {
+    background-color: #373c44;
+    color: #fff;
+}
+.sf-btn {
+    color: #fff;
+}
+
+.field{
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	font-size: 14px;
+}
+.auto-title{
+	color: white;
+	padding-left: 110px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	text-transform: uppercase;
+}
+.modal-btn{
+	background-color: #343a40;
+	color: #28a745;
+	padding: 5px 10px;
+	font-size: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	border-width: 2px;
+}
+.footer-color{
+	background-color: #141414
+}
+.footer{
+	font-size: 12px;
+	color: #e0e0e0;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+.card-header{
+	background-color: #343a40;
+	color: white;
+}
+.card{
+	border-width: 2px;
+	border-radius: 3%;
+	border-color: #343a40;
+}
+.name{
+	font-family: Times;
+	color: #343a40;
+}
+
+
+.detail-client:hover {
+    background-color: #4e555b;
+    color: #fff3cd;
+}
+
+ .detail-client:hover {
+     background-color: #4e555b;
+     color: #fff3cd;
+ }
+>>>>>>> kad
