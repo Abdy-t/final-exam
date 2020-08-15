@@ -1,10 +1,5 @@
-Overview:
-    ABC-system is designed to improve the work of a microcredit organization by automating business processes and reducing manual work.
-Mainly these business proccesses include accounting of customers, credits, collateral, operations in a database. Also application helps
-organization workers to form operational financial reports and analytic dashboards.
-
 Downloading:
-    ABC-system can be downloaded from the GitLab repository:
+    Afinal-exam can be downloaded from the GitLab repository:
     * Clone with SSH: git@github.com:Abdy-t/final-exam.git
     * Clone with HTTPS: https://github.com/Abdy-t/final-exam.git
     * Download source code: https://github.com/Abdy-t/final-exam
