@@ -5,9 +5,9 @@ organization workers to form operational financial reports and analytic dashboar
 
 Downloading:
     ABC-system can be downloaded from the GitLab repository:
-    * Clone with SSH: git@gitlab.com:md5orsha256/team-2-esdp-java-2020.git
-    * Clone with HTTPS: https://gitlab.com/md5orsha256/team-2-esdp-java-2020.git
-    * Download source code: https://gitlab.com/md5orsha256/team-2-esdp-java-2020
+    * Clone with SSH: git@github.com:Abdy-t/final-exam.git
+    * Clone with HTTPS: https://github.com/Abdy-t/final-exam.git
+    * Download source code: https://github.com/Abdy-t/final-exam
 
 Running and modifying this application:
     To run and modify this application you need:
@@ -34,17 +34,12 @@ Running and modifying this application:
     To build the project you need:
     * spring-boot-maven-plugin
     
-    Also create table in MySQL with name "abc_system"
+    Also create table in MySQL with name "exam12"
     
     Add connection settings into Application properties:
     * spring.datasource.url
     * spring.datasource.username
     * spring.datasource.password
 
-To ask questions or make proposals, please contact us:
-    * kadyrbek.mavlyanov@gmail.com
-    * maulenzhar@gmail.com
-    * aliesenturovvv@gmail.com
-    * MauricioShogunRua96@gmail.com
-    * bolotbekov@gmail.com
+To ask questions or make proposals, please contact me:
     * tabyldyev34@gmail.com
