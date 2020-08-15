@@ -29,7 +29,7 @@
 
         <div class="container m-auto p-0">
             <nav class="navbar navbar-expand-lg bg-dark my-2">
-                <a class="navbar-brand text-uppercase link-logo" href="/"><b>ABC</b>System</a>
+                <a class="navbar-brand text-uppercase link-logo" href="/"><b>Cafes</b></a>
 
 
                 <form class="form-inline">

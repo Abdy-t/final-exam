@@ -11,8 +11,7 @@
          <div class="row">
             <#list page.content as cafe>
                 <div class="card mb-3">
-                    <img src="/images/java123.jpg" class="card-img-top" style="width:  100px">
-                    <img src="${cafe.image}" class="card-img-top" alt="...">
+                    <img src="${cafe.image}" class="card-img-top" alt="..." style="width:  150px">
                     <div class="card-body">
                         <a href="/cafe/${cafe.id}" class="btn" style="background-color: #1d9fbd"><h5 class="card-title">${cafe.title}</h5></a>
                         <p>Rating-${cafe.rating}</p>

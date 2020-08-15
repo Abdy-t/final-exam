@@ -56,27 +56,28 @@ public class Service {
     }
 
     public Cafe getCafe(int id) {
-        var reviews = reviewRepository.findAllByCafe_Id(id);
-        float sum = 0;
-        float average = 0;
-        for (int i = 0; i < reviews.size(); i++) {
-            sum += reviews.get(i).getRating();
-        }
-        average = sum / reviews.size();
         var cafe = cafeRepository.findById(id).get();
-        cafe.setRating(average);
-        cafeRepository.save(cafe);
+        cafe.setRating(averageSum(cafe.getId()));
         return cafe;
     }
 
     public List<Review> getReviews(int id) {
-        return reviewRepository.findAllByCafe_Id(id);
+        return reviewRepository.findAllByCafe(cafeRepository.findById(id).get());
     }
     public User getUserByEmail(String email) {
         return repository.findByEmail(email);
     }
+    public float averageSum(int id) {
+        List<Review> reviews = reviewRepository.findAllByCafe(cafeRepository.findById(id).get());
+        float sum = 0;
+        float average = 0;
+        for (Review value : reviews) {
+            sum += value.getRating();
+        }
+        average = sum / reviews.size();
+        return  average;
+    }
     public void addReview(int cafe_id, String review, float rating, String user) {
-        System.out.println(" Rating " + cafe_id + review+ rating);
         User usr = getUserByEmail(user);
         Review newReview = Review.builder()
                 .text(review)
@@ -88,73 +89,35 @@ public class Service {
                 .build();
         reviewRepository.save(newReview);
     }
-    public void addCafe(String title, String description, String path) {
+    public void addCafe(MultipartFile file, String title, String description) throws Exception {
+        saveImage(file);
         Cafe newCafe = Cafe.builder()
                 .title(title)
                 .description(description)
                 .build();
-
-        Image image = Image.builder()
-                .path(path)
-                .cafe(newCafe)
-                .build();
-
         cafeRepository.save(newCafe);
-        imageRepository.save(image);
+        addImage(file, newCafe);
     }
+
     public void deleteReview(String id) {
         reviewRepository.delete(reviewRepository.findById(Integer.parseInt(id)).get());
     }
-    public void saveImage(MultipartFile file, String title, String description) throws Exception{
-        String folder = "C:/Users/tabyl/OneDrive/Рабочий стол/final-exam/images/";
+
+    public void addImage(MultipartFile file, Cafe cafe) throws Exception {
+        saveImage(file);
+        Image image = Image.builder()
+                .path(file.toString())
+                .cafe(cafe)
+                .build();
+        imageRepository.save(image);
+    }
+
+    public void saveImage(MultipartFile file) throws Exception{
+        String folder = "../images/";
         byte[] bytes = file.getBytes();
         Path path = Paths.get(folder + file.getOriginalFilename());
         Files.write(path, bytes);
-        addCafe(title, description, path.toString());
-
-
-
-
-
-
-//        BufferedImage img = null;
-//        try {
-//            System.out.println(file.getName());
-//            System.out.println(file.getResource().isFile());
-////            System.out.println(file.ge);
-//            img = new BufferedImage(200, 200, BufferedImage.TYPE_INT_ARGB);
-//            img = ImageIO.read((File) file);
-//            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//            ImageIO.write(img, "jpg", baos);
-//            System.out.println("succes read");
-//
-//        } catch (Exception ex) {
-//
-//        }
-//
-//        try {
-//            System.out.println(String.valueOf(file));
-//            File f = new File(String.valueOf(file));
-//            ImageIO.write(img, "jpg", f);
-//            System.out.println("succes write");
-//        } catch (Exception ex) {
-//
-//        }
-//        BufferedImage img = null;
-//        img = ImageIO.read((File) file);
-//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//        ImageIO.write(img, "jpg", baos);
-//        baos.flush();
-//
-//        byte[] bytes = baos.toByteArray();
-//        baos.close();
-//
-//        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
-//        try {
-//            Image image = new Image(fileName,file.getContentType(),file.getBytes());
-//            imageRepository.save(image);
-//        } catch (IOException e) {
-//            System.out.println(e);
-//        }
     }
+
+
 }

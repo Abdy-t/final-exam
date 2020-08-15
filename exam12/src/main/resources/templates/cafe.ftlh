@@ -9,14 +9,14 @@
             <#if cafe??>
                 <div class="card mb-3">
                     <h3>${cafe.title}</h3>
-<#--                    <img src="/images/java123.jpg" class="card-img-top" style="width:  300px">-->
-<#--                    <img src="${cafe.image}" class="card-img-top" alt="...">-->
                     <div class="card-body">
-                        <img src="/images/java123.jpg" class="card-img-top" style="width:  300px">
+                        <img src="${img}" class="card-img-top" style="width:  300px">
                         <#if images??>
+                            <div style="text-align: left">
                             <#list images as image>
                                 <img src="/images/java123.jpg" class="card-img-top" style="width:  100px">
                             </#list>
+                            </div>
                         </#if>
                         <h4 style="color: #0f6674">Description</h4>
                         <h5>${cafe.description}</h5>
@@ -60,16 +60,9 @@
                     <button type="submit" class="send btn btn-secondary">Add</button>
                 </div>
             </form>
-            <form action="/addCafes" method="post" style="width: 50%; margin-left: auto; margin-right: auto" enctype="multipart/form-data">
+            <form action="/addImage" method="post" style="width: 50%; margin-left: auto; margin-right: auto" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label for="title">Cafe</label>
-                    <input name="title" type="text" class="form-control" id="title"  placeholder="Cafe title" required autofocus>
-                </div>
-                <div class="form-group">
-                    <label for="description">Description</label>
-                    <input name="description" type="text" class="form-control" id="description"  placeholder="Cafe title" required autofocus>
-                </div>
-                <div class="form-group">
+                    <input name="cafe_id" type="hidden" class="form-control" id="cafeId"  value="${cafe.id}" required autofocus>
                     <label for="image">Image</label>
                     <input name="image" type="file" class="form-control" id="image"  placeholder="Cafe title" required autofocus>
                 </div>

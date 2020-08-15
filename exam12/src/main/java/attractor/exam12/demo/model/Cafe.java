@@ -6,7 +6,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @Table(name = "cafes")
 @Entity
 @Builder

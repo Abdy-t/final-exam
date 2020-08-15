@@ -70,7 +70,9 @@ public class Controller {
         if (cafe.getImages().size() > 1)
             model.addAttribute("images", cafe.getImages());
         model.addAttribute("reviews", service.getReviews(id));
+        model.addAttribute("img", cafe.getImages().get(0).getPath());
         model.addAttribute("user", service.getUserByEmail(authentication.getName()));
+        model.addAttribute("sum", service.averageSum(id));
 
         return "cafe";
     }
@@ -94,12 +96,21 @@ public class Controller {
 
     @RequestMapping(value = "/addCafes", method = RequestMethod.POST)
     public String addCafes(@RequestParam String title, String description, MultipartFile image) {
-
         try {
-            service.saveImage(image, title, description);
+            service.addCafe(image, title, description);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
         return "redirect:/addCafe";
+    }
+
+    @RequestMapping(value = "/addImage", method = RequestMethod.POST)
+    public String addImage(@RequestParam String cafe_id, MultipartFile image) {
+        try {
+            service.addImage(image, service.getCafe(Integer.parseInt(cafe_id)));
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return "redirect:/cafe/" + cafe_id;
     }
 }
