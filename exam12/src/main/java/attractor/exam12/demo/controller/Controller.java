@@ -59,7 +59,15 @@ public class Controller {
         service.registration(form);
         return "redirect:/login";
     }
-
+    @GetMapping("/result")
+    public String result(Model model) {
+        return "result";
+    }
+    @PostMapping("/search")
+    public String search(@RequestParam String name, RedirectAttributes model) {
+        model.addAttribute("result", service.search(name));
+        return "redirect:/result";
+    }
     @GetMapping("/cafe/{id}")
     public String getCafe(@PathVariable("id") int id, Model model, Authentication authentication) {
         Cafe cafe = service.getCafe(id);

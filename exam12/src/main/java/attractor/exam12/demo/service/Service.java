@@ -67,6 +67,9 @@ public class Service {
     public User getUserByEmail(String email) {
         return repository.findByEmail(email);
     }
+    public List<Cafe> search(String name) {
+        return cafeRepository.findAllByTitle(name);
+    }
     public float averageSum(int id) {
         List<Review> reviews = reviewRepository.findAllByCafe(cafeRepository.findById(id).get());
         float sum = 0;

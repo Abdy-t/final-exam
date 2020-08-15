@@ -28,7 +28,7 @@
             <#if reviews??>
                 <#list reviews as review>
                     <div style="text-align: left">
-                        <h4>On ${review.date} ${review.user_name} said:</h4>
+                        <h4>On ${review.date} <b style="color: #0f6674">${review.user_name}</b> said:</h4>
                         <h5>${review.text}</h5>
                         <h4>${review.rating}</h4>
                     </div>

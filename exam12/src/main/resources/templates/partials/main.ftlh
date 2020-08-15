@@ -32,8 +32,8 @@
                 <a class="navbar-brand text-uppercase link-logo" href="/"><b>Cafes</b></a>
 
 
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="Search">
+                <form class="form-inline" method="post" action="/search">
+                    <input name="name" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn-su my-2 my-sm-0" type="submit">Поиск</button>
                 </form>
 
